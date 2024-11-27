@@ -1,0 +1,116 @@
+1. #include<library name>
+1. #include<bits/stdc++.h>
+2. BASIC BODY:
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main(){
+        int x,y;
+        cin>>x>>y;
+        cout<<"Hello word"<<endl<<x<<y;
+        
+    }
+
+3. Data types :
+    a.   int , long , long long --> Integer ka storage
+    b. float , double         --> Decimal ka storage
+    c. string , getline       --> Strings and sentences 
+        eg: 
+        string str;
+        getline(cin,str);
+        cout<<str;
+    d. char ch='a';              --> charater
+
+4. if else 
+       if(){}else{}
+       if() else if(){}else {}
+
+
+5. Logical Operator : && || !
+
+6. Swith case 
+    int n;
+    cin>>n;
+    switch(n){
+        case 1:
+        break;
+        case 2: 
+        break;
+        default: 
+    } 
+7. Arrays
+    int arr[6];
+    arr[0],arr[1],arr[5]=10
+
+    int arr[row][col];
+
+8. String
+string s="Pradyumna"
+int len=s.size()
+cout<<s[1];-->r
+cout<<s[3];-->d
+cout<<s[len-1]='z'; -->a
+
+9. for
+for(int i=0;i<n;i++) --> while() --> do{}while()
+
+10. Functions 
+    - void
+       void f_name(){}
+    - return
+      data_type f_name(){
+        return
+      }
+    - parameterized 
+    void f_name(data_type name1,data_type name2){}
+    or 
+    data_type f_name(data_type name1,data_type name2){
+        return
+      }
+    - non parameterized
+    void f_name(){}
+    or 
+    data_type f_name(){
+        return
+      }
+
+11.  Pass by Value
+       eg:   void doSomething(int num){
+                cout<<num<<endl;
+                num+=5;
+                cout<<num<<endl;
+                num+=5;
+                cout<<num<<endl;
+                num+=5;
+                cout<<num<<endl;
+       }
+       main(){
+        int num=10;
+        doSomething(10)
+       }
+12.  Pass by Reference
+#include<bits/stdc++.h>
+using namespace std;
+
+void doSomething(string &s){
+  s[0]='p';
+
+}
+
+int main() 
+{
+    string s="jardyumna";
+    doSomething(s);
+    cout<<s;
+    return 0;
+}
+
+## If u pass an arr in th efusction it will always go by reference
+
+void doSomething(int arr[],int n){
+
+}
+int main(){
+    int n=5;
+    int arr[n];
+    doSomething(arr,n);
+}
