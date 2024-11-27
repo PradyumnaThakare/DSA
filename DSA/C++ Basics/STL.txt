@@ -1,0 +1,309 @@
+1. Algorithms
+    a[] - {1,5,3,2}
+    sort(start,end)
+    sort(a,a+size)
+    sort(v.begin(),v.end())
+    sort(a+2,a+4) -> {1,5,2,3}
+    sort(a,a+n,greater<int>) -> sort in the desencding order
+    --MY way sorting check code 
+
+    int num=7;  0000000111
+    int cnt=__builtin_popcount(num) -> cnt=3 -> How may set bits are there
+
+    long long num1=1231343123347978;
+    int cnt __builtin_popcountll(num1);
+  - Next permutatons  thre is aslo a catch u need to always start from the sorted 
+    string s="123";
+    sort(s.begin(),s.end());
+    do{
+        cout<<s<<endl;
+    }while(next_permutations(s.begin(),s.end()));
+
+    - Max element from the array
+    int maxi=*max_element(a,a+n)
+2. Containers
+- #############################################################################################################################
+- #############################################################################################################################
+
+    - ### Pair  : pair<datatype,datatype> v_name={value1, value2}
+     - Storing 2 variables
+        pair<int,int>p={1,3}
+        p.first  -> 1
+        p.second -> 3
+    - Storing 3 variables
+        pair<int,pair<int,int>>p={1,{3,4}}
+        p.first -> 1   
+        p.second.first -> 3 
+        p.second.second -> 4
+
+    - Pair Arr
+    pair<int,int>arr[]={{1,2},{3,4},{5,1}};
+    arr[1].second -> 4
+    arr[0].first ->  1 
+    arr[2].second -> 1    
+- #############################################################################################################################
+- #############################################################################################################################
+
+    - ### Vector : vector<datatype>v_name   (Dynamic array)
+    - Declaration in Vectors
+    1. vector<int> v ;    (datatype) -> int, char, double, String
+
+    2. vector<int>v2(size,default value);
+       vector<int>v2(5,100);
+
+
+    1. v.push_back(1); 
+    2. v.emplace_back(2);  - Same as push_back but emplace_back is faster So use that
+
+    vector<pair<int,int>> v;
+    v.push_back({1,2});
+    v.emplace_back(1,2);
+
+    vector<int>a(5,20);
+    vector<int>b(a);
+
+    - Accessing Vectors
+        v[1] , v[0] , v.back() -> last element
+        {20,10,15,7,8}
+    - ************IMP***************    
+        vector<int>::iterator it=v.begin(); -> as the address of element at 0 
+        it++;
+        cout<< *(it) -> 10
+        it=it+2
+        cout<< *(it) -> 7
+
+       1. vector<int>::iterator it=v.end(); -> this will point to address after 8
+       2. vector<int>::iterator it=v.rend();
+       3. vector<int>::iterator it=v.rbegin();
+
+    - Iteration in vector 
+    for(vector<int>::iterator it=v.begin(); it!=v.end();it++){
+            cout<<*(it);
+    }
+    - Short cut
+    for(auto it=v.begin();it.v.end();it++){
+        cout<< *(it)<<" ";
+    }
+    - Short Cut
+    for(auto it:v){
+        cout<<it<<" ";
+    }
+
+    - Deletion In a vector
+    // {10,20,12,23}
+    v.erase(v.begin()+1) -> {10,12,23}
+    v.erase(v.begin()+1,v.begin()+3)->{10,23} [start,end)
+
+    - Insert in Vector
+    vector<int>v(2,100); {100,100}
+    v.insert(v.begin()+1,2); {100,2,100}
+    v.insert(v.begin(),50); {10,100,2,100}
+    v.insert(v.begin()+1,2,5); {10,5,5,2,100}
+
+    - Insert a vector in a vector
+    vector<int>v2(2,50); {50,50}
+    v.insert(v.begin(),v2.begin(),v2.end()); {50,50,10,5,5,2,100}
+    - Size 
+    v.size()
+    - Pop_back
+    {10,20}
+    v.pop_back(); // {10}
+    - Size 
+    v1-> {10,20}
+    v2-> {30,40}
+    v1.swap(v2); // v1->{30,40} , v2->{10,20}
+    v.clear();// Erases the entier vector
+    v.empty(); // boolean 
+   
+- #############################################################################################################################
+- #############################################################################################################################
+    
+- LIST 
+list<int> ls ;
+ls.push_back(2); {2}
+ls.emplace_back(4); {2,4}
+ls.push_front(5); {5,2,4}
+ls.emplace_front(); {2,4}
+
+- Rest fuctions is same as vector
+begin,end,rbegin,rend,clear,insert,size,swap 
+
+  
+- #############################################################################################################################
+- #############################################################################################################################
+    
+- Deque
+
+        deque<int>dq;
+        dq.push_back(1); {1}
+        dq.emplace_back(2); {1,2}
+        dq.push_front(4); {4,1,2}
+        dq.emplace_front(3); {3,4,1,2}
+
+        dq.pop_back(); {3,4,1}
+        dq.pop_front(); {4,1}
+        dq.back();
+        dq.front();
+- Rest fuctions is same as vector
+begin,end,rbegin,rend,clear,insert,size,swap 
+
+- #############################################################################################################################
+- #############################################################################################################################
+    
+        - Stack  (LIFO)
+        stack<int>st 
+        st.push(1); {1}
+        st.push(2); {2,1}
+        st.push(3); {3,2,1}
+        st.push(3); {3,3,2,1}
+        st.emplace(5); {5,3,3,2,1}
+        
+        st.top() -> 5
+        st.pop() -> remove 5 from stack
+        st.top()->3
+        st.size() -> 4
+        st.empty()
+        stack<int>st1,st2;
+        st1.swap(st2)
+
+- #############################################################################################################################
+- #############################################################################################################################
+
+        - Queue  (FIFO)
+    queue<int>q 
+    q.push(1); {1}
+    q.push(2); {1,2}
+    q.emplace(4);{1,2,4}
+    q.back()+=5 ; {1,2,9}
+    cout<<q.back() -> 9
+    q.front() -> 1 
+    q.pop(); {2,9}
+    q.front()
+  // Size and swap same as stack
+- #############################################################################################################################
+- #############################################################################################################################
+  - Priority Queue   (Largest element would always will stay on top)
+    //Max_HEAP 
+        priority_queue<int>pq; 
+        pq.push(5); {5}
+        pq.push(2); {5,2}
+        pq.push(8); {8,5,2}
+        pq.push(10); {10,8,5,2}
+        pq.top(); -> 10
+        pq.pop(); {8,5,2}
+        pq.size(); 
+        swap fuction
+    
+    //Min_HEAP
+        priority_queue<int,vector<int>,greater<int>>pq;
+        pq.push(5); {5}
+        pq.push(2); {2,5}
+        pq.push(8); {2,5,8}
+        pq.emplace_back(10); {2,5,8,10}
+        pq.top() -> 2
+
+- #############################################################################################################################
+- #############################################################################################################################
+
+        - SET (stores in sorted order and unique elements)
+
+        set<int>st;
+        st.insert(1); {1}
+        st.emplace(2);{1,2} 
+        st.insert(2); {1,2} 2 not entered
+        st.insert(4); {1,2,4}
+        st.insert(3); {1,2,3,4}
+
+        Functionality of insert in vector can be used alaso that only increases the efficiency
+
+        begin(),end(),rbegin(),rend(),size(),empty() 
+        and swap() 
+
+        - Find
+        {1,2,3,4,5}
+        auto it=st.find(3) -> will return address of 3
+        
+        auto it=st.find(6) -> will retrun st.end()
+        st.erase(5) {1,2,3,4}
+        int cnt=st.count(1) -> if 1 exists it will have 1 occurence if not then will have 0
+ 
+
+         auto it=st.find(3);
+         st.erase(it);
+
+         {1,2,3,4,5}
+         auto it1=st.find(2);
+         auto it2=st.find(4);
+         st.earse(it1,it2) -> {1,4,5}
+
+         auto it=st.lower_bound(2);
+         auto it=st.upper_bound(3)
+
+
+- #############################################################################################################################
+- #############################################################################################################################
+
+        - MultiSet (It will store duplicate elements but it would be in sorted order) {1,1,1,3,3,5,5,5}
+        multiset<int>ms;
+        ms.insert(1); {1}
+        ms.insert(1); {1,1}
+        ms.insert(1); {1,1,1}
+        ms.erase(1) -> ALL 1's erased
+
+        // Only a single one is earsed 
+        ms.erase(ms.find(1))
+
+        ms.earse(ms.find(1),ms.find(1)+2)
+        // Rest all fucntions is same as set
+
+- #############################################################################################################################
+- #############################################################################################################################    
+
+    - Unordered set (stores unique elements not in sorted order) 
+        
+        unordered set<int>st; {6,7,8,1,2,4,0}
+
+        lower_bound and upper_bound fucntions dont work. Rest all functions are same as SETS . It does not stores in any particular order it has a better complexity than set in most cases except some when collision happens
+
+- #############################################################################################################################
+- ############################################################################################################################# 
+
+    - MAP   map<key,value> map<data_type,data_type> v_name
+    - Map stores uniques keys in sorted order
+    map<int,int>mpp;   (1key,1value)
+    map<int,pair<int,int>> mpp (1key,2value)
+    map<pair<int,int>,int>mpp  (2kye,1value)
+
+    mpp[1]=2; -> stores {key,value} {1,2}
+    mpp.emplace({3,1}) -> {{1,2}{3,1}}
+    mpp.insert({2,4}) -> {{1,2}{2,4}{3,1}}
+
+    mpp[{2,3}]=10; -> {{2,3},10}
+
+
+    - Iteration
+    for(auto it:mpp){
+        cout<<it.first<<" "<<it.second<<endl;
+    }
+    cout<<mpp[1] -> 2
+    cout<<mpp[3] -> 1
+    
+    auto it=mpp.find(3);
+    cout<<*(it).second; ->1
+
+    auto it= mpp.lower_bound(2);
+    auto it=mpp.upper_bound(3);
+    // Erase swap size empty 
+
+
+    - Multimap()
+    Everything same as map only it can store multiple duplicate keys in ordered manner
+    only mpp[key] cannot be used here
+
+    - Unorderd Map()
+    This is have unique keys and wont be sorted rest fuction same as map
+
+
+
+
+
